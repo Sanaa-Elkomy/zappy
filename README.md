@@ -18,8 +18,6 @@ Install the dependencies and devDependencies and start the server.
 $ git clone https://github.com/Sanaa-Elkomy/zappy.git
 $ cd zapper
 $ npm install 
-$ node index.js // app will run with my keys
-or
 $ node index.js //running app with these enviroment variables
 SLACK_TOKEN='workspace token' 
 CONSUMER_KEY='twitter api key'
