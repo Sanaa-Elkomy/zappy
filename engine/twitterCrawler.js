@@ -64,10 +64,14 @@ async function setMaxTwitterId(search_metadata) {
 };
 
 function parseURL(url) {
-    const queryString = url.substring(url.indexOf('?') + 1);
-    const [maxIdStr] = queryString.split('&');
-    const maxId = maxIdStr.split('=');
-    return maxId ? maxId[1] : null;
+    let result = null;
+    if(url){
+        const queryString = url.substring(url.indexOf('?') + 1);
+        const [maxIdStr] = queryString.split('&');
+        const maxId = maxIdStr.split('=');
+        result = maxId ? maxId[1] : null;
+    }
+    return result;
 }
 // getRecentTweets();
 module.exports = {
