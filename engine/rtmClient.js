@@ -4,7 +4,7 @@ const config   = require('../config');
 const TwitterCrawler = require('../engine/twitterCrawler');
 const TweetsService = require('../services/tweets');
 
-const token = process.env.SLACK_TOKEN || config.SLACK_TOKEN;
+const token =  config.SLACK_TOKEN;
 const keyword = config.KEYWORD
 
 const rtm = new RTMClient(token);

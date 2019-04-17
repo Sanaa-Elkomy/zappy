@@ -1,13 +1,17 @@
 const Twitter = require('twitter');
 const TwitterScanCycle = require('../db/models/twitterScanCycle');
-const { CONSUMER_KEY, CONSUMER_SECRET,
-    ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET } = require('../config').TWITTER_API_KEYS;
+const {
+    CONSUMER_KEY,
+    CONSUMER_SECRET,
+    ACCESS_TOKEN_KEY,
+    ACCESS_TOKEN_SECRET
+} = require('../config').TWITTER_API_KEYS;
 
 const client = new Twitter({
-    consumer_key: process.env.CONSUMER_KEY || CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET || CONSUMER_SECRET,
-    access_token_key: process.env.ACCESS_TOKEN_KEY || ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET || ACCESS_TOKEN_SECRET,
+    consumer_key: CONSUMER_KEY,
+    consumer_secret: CONSUMER_SECRET,
+    access_token_key: ACCESS_TOKEN_KEY,
+    access_token_secret: ACCESS_TOKEN_SECRET,
 });
 
 //@FictionFone
@@ -47,7 +51,7 @@ async function setMaxTwitterId(search_metadata) {
         } else {
             const document = {
                 maxId: parseURL(search_metadata.next_results),
-                sinceId:  search_metadata.max_id_str,
+                sinceId: search_metadata.max_id_str,
             };
 
             const cycle = new TwitterScanCycle(document);
@@ -60,10 +64,10 @@ async function setMaxTwitterId(search_metadata) {
 };
 
 function parseURL(url) {
-    const queryString = url.substring( url.indexOf('?') + 1 );
+    const queryString = url.substring(url.indexOf('?') + 1);
     const [maxIdStr] = queryString.split('&');
     const maxId = maxIdStr.split('=');
-   return maxId? maxId[1] : null;
+    return maxId ? maxId[1] : null;
 }
 // getRecentTweets();
 module.exports = {

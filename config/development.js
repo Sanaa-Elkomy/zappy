@@ -1,10 +1,13 @@
+/**
+ * These key a
+ */
 module.exports = {
-    SLACK_TOKEN: 'xoxp-607869162912-601548451873-611670573687-db6b5ffbd44bbb91eb78e4998f67f2c2',
+    SLACK_TOKEN: process.env.SLACK_TOKEN,
     TWITTER_API_KEYS : {
-        CONSUMER_KEY: 'Vcl7bWwgp2kxvWNQIr5HzhfR2',
-        CONSUMER_SECRET: '4ebiLa1bKZDBsNJpjllRqobJAOUq09nVULo1TV5T3I0w6giy9D',
-        ACCESS_TOKEN_KEY: '1116808513928482819-U7iG6Dg1YvX1yWIeorc4qPzR03cEaS',
-        ACCESS_TOKEN_SECRET: '4MHsQhTwD3EivmlicEjyOY5fo6518pG852VQZY0CV2ZGe',
+        CONSUMER_KEY: process.env.CONSUMER_KEY,
+        CONSUMER_SECRET: process.env.CONSUMER_SECRET,
+        ACCESS_TOKEN_KEY: process.env.ACCESS_TOKEN_KEY,
+        ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
     },
     KEYWORD: /\bgo/i,
     DB_URL: 'mongodb://localhost/zappy',    
